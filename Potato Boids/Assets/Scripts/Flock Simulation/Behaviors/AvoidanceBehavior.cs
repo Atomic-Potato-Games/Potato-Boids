@@ -22,7 +22,7 @@ namespace FlockSimulation
                 {
                     bool isNeighborWithinAvoidanceDistance =
                         // (neighbor.position - agent.transform.position).sqrMagnitude < flock.NeighborAvoidanceRadiusSquared;
-                        Vector3.Distance(neighbor.position, agent.transform.position) < flock.NeighborAvoidanceRadius2;
+                        Vector3.Distance(neighbor.position, agent.transform.position) < flock.NeighborAvoidanceRadius;
                     if (isNeighborWithinAvoidanceDistance)
                     {
                         sum += agent.transform.position - neighbor.position;

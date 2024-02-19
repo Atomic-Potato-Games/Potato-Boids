@@ -20,7 +20,9 @@ namespace FlockSimulation
         [SerializeField, Min(0)] float _maxSpeed = 10f;
         [SerializeField, Min(0)] float _neighborDetectionRadius = 1.5f;
         [SerializeField, Min(0)] float _neighborAvoidanceRadius = 1f;
-        public float NeighborAvoidanceRadius2 => _neighborAvoidanceRadius;
+        public float NeighborAvoidanceRadius => _neighborAvoidanceRadius;
+        [SerializeField, Min(0)] float _directionChangeSmoothTime = .5f;
+        public float DirectionChangeSmoothTime => _directionChangeSmoothTime;
         [SerializeField] LayerMask _agentLayer;
 
         [Space, Header("Debugging")]

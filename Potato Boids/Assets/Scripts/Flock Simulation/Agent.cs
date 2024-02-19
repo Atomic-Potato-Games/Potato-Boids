@@ -9,7 +9,7 @@ namespace FlockSimulation
         public Flock Flock => _flock;
         Collider _collider;
         public Collider Collider => _collider;
-
+        
         void Awake()
         {
             _collider = GetComponent<Collider>();

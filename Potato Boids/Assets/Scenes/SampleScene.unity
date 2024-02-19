@@ -173,6 +173,7 @@ MonoBehaviour:
   _maxSpeed: 10
   _neighborDetectionRadius: 4
   _neighborAvoidanceRadius: 3.5
+  _directionChangeSmoothTime: 1
   _agentLayer:
     serializedVersion: 2
     m_Bits: 256
