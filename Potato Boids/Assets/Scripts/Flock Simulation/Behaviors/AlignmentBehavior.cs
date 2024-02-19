@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace FlockSimulation
 {
-    [CreateAssetMenu (fileName = "Cohesion Behavior", menuName = "Flock/Behavior/Cohesion")]
-    public class CohesionBehavior : FlockBehavior
+    [CreateAssetMenu (fileName = "Alignment Behavior", menuName = "Flock/Behavior/Alignment")]
+    public class AlignmentBehavior : FlockBehavior
     {
         public override Vector3 CalculateMoveVector(Agent agent, List<Transform> neighbors, Flock flock)
         {
@@ -12,15 +12,13 @@ namespace FlockSimulation
             if (!isNeighborsExist)
                 return Vector3.zero;
 
-            Vector3 avgPosition = GetNeighborsAvgPosition();
-            // return the avg position offset by the agent position
-            return avgPosition - agent.transform.position;
+            return GetNeighborsAvgHeading();
 
-            Vector3 GetNeighborsAvgPosition()
+            Vector3 GetNeighborsAvgHeading()
             {
                 Vector3 sum = Vector3.zero;
                 foreach (Transform neighbor in neighbors)
-                    sum += neighbor.position;
+                    sum += neighbor.up;
                 return sum / neighbors.Count;
             }
         }

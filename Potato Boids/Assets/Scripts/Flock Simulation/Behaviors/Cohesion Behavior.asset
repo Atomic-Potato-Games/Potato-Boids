@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a08af335c34d434e95d8ff783390064, type: 3}
-  m_Name: CohesionBehavior
+  m_Name: Cohesion Behavior
   m_EditorClassIdentifier: 

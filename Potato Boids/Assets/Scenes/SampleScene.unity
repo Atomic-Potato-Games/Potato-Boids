@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentPrefab: {fileID: 3631293523467100799, guid: bbc264bd39acbbe478ed91aa764797f0,
     type: 3}
-  _flockBehavior: {fileID: 0}
+  _flockBehavior: {fileID: 11400000, guid: 00a29dc4e05d3144999c89beb785808f, type: 2}
   _agentsCount: 100
   _agentsSpawnDensity: 0.08
   _speedMultiplier: 3
@@ -176,7 +176,7 @@ MonoBehaviour:
   _agentLayer:
     serializedVersion: 2
     m_Bits: 256
-  _isDrawNeighborsLines: 0
+  _isDrawNeighborsLines: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
