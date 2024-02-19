@@ -73,6 +73,9 @@ namespace FlockSimulation
                 bool isExceededMaxSpeed = moveLocation.sqrMagnitude > _maxSpeedSquared; 
                 if (isExceededMaxSpeed)
                     moveLocation = moveLocation.normalized * _maxSpeed;
+
+                if (moveLocation == Vector3.zero)
+                    moveLocation += transform.up;
                 agent.Move(moveLocation);
             }
         }
