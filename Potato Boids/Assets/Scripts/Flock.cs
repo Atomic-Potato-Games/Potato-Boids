@@ -20,7 +20,10 @@ namespace FlockSimulation
         [SerializeField, Min(0)] float _maxSpeed = 10f;
         [SerializeField, Min(0)] float _neighborDetectionRadius = 1.5f;
         [SerializeField, Min(0)] float _neighborAvoidanceRadiusMultiplier = .5f;
+        [SerializeField] LayerMask _agentLayer;
 
+        [Space, Header("Debugging")]
+        [SerializeField] bool _isDrawNeighborsLines;        
 
         float _maxSpeedSquared;
         float _neighborDetectionRadiusSquared;
@@ -51,6 +54,42 @@ namespace FlockSimulation
                 _agents.Add(agent);
             }
         }
+
+        void Update()
+        {
+            MoveAgents();
+        }
         #endregion
+
+        void MoveAgents()
+        {
+            foreach (Agent agent in _agents)
+            {
+                List<Transform> neighbors = GetNeighbors(agent);
+
+                if (_isDrawNeighborsLines)
+                    foreach (Transform neighbor in neighbors)
+                        Debug.DrawLine(agent.transform.position, neighbor.position);
+
+                Vector3 moveLocation = _flockBehavior.CalculateMoveVector(agent, neighbors, this);
+                moveLocation *= _speedMultiplier;
+                bool isExceededMaxSpeed = moveLocation.sqrMagnitude > _maxSpeedSquared; 
+                if (isExceededMaxSpeed)
+                    moveLocation = moveLocation.normalized * _maxSpeed;
+                agent.Move(moveLocation);
+            }
+        }
+
+        public List<Transform> GetNeighbors(Agent agent)
+        {
+            List<Transform> neighbors = new List<Transform>();
+            Collider[] hits = Physics.OverlapSphere(agent.transform.position, _neighborDetectionRadius, _agentLayer);
+            foreach (Collider collider in hits)
+            {
+                if (collider != agent.Collider)
+                    neighbors.Add(collider.gameObject.transform);
+            }
+            return neighbors;
+        }
     }
 }

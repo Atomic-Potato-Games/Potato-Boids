@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 2734691751674637159}
   - component: {fileID: 9056820304941533995}
   - component: {fileID: 3631293523467100799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Agent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
