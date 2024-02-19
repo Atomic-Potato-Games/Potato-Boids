@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 namespace FlockSimulation
 {
@@ -14,6 +15,9 @@ namespace FlockSimulation
         [Space, Header("Flock Properites")]
         [SerializeField, Min(0)] int _agentsCount = 100;
         [SerializeField, Min(0)] float _agentsSpawnDensity = .08f; 
+        [Tooltip("If an attraction behavior is added, then this field is required.")]
+        [SerializeField] Transform _attractor;
+        public Transform Attractor => _attractor;
 
         [Space, Header("Agent Properites")]
         [SerializeField, Min(0)] float _speedMultiplier = 3f;
