@@ -166,9 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentPrefab: {fileID: 3631293523467100799, guid: bbc264bd39acbbe478ed91aa764797f0,
     type: 3}
-  _flockBehavior: {fileID: 11400000, guid: 00a29dc4e05d3144999c89beb785808f, type: 2}
+  _flockBehavior: {fileID: 11400000, guid: cfda73fb1cf25ee419c1aff76d921305, type: 2}
   _agentsCount: 100
-  _agentsSpawnDensity: 0.08
+  _agentsSpawnDensity: 0.001
   _speedMultiplier: 1
   _maxSpeed: 5
   _neighborDetectionRadius: 2.5

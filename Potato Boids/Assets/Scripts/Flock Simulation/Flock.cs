@@ -19,23 +19,20 @@ namespace FlockSimulation
         [SerializeField, Min(0)] float _speedMultiplier = 3f;
         [SerializeField, Min(0)] float _maxSpeed = 10f;
         [SerializeField, Min(0)] float _neighborDetectionRadius = 1.5f;
-        [SerializeField, Min(0)] float _neighborAvoidanceRadiusMultiplier = .5f;
+        [SerializeField, Min(0)] float _neighborAvoidanceRadius = 1f;
+        public float NeighborAvoidanceRadius2 => _neighborAvoidanceRadius;
         [SerializeField] LayerMask _agentLayer;
 
         [Space, Header("Debugging")]
         [SerializeField] bool _isDrawNeighborsLines;        
 
         float _maxSpeedSquared;
-        float _neighborDetectionRadiusSquared;
-        float _neighborAvoidanceRadiusSquared;
         #endregion 
 
         #region Execution
         void Awake()
         {
             _maxSpeedSquared = Mathf.Pow(_maxSpeed, 2);
-            _neighborDetectionRadiusSquared = Mathf.Pow(_neighborDetectionRadius, 2);
-            _neighborAvoidanceRadiusSquared = _neighborDetectionRadius * Mathf.Pow(_neighborAvoidanceRadiusMultiplier, 2);
             SpawnAgents();
         }
 
