@@ -46,7 +46,7 @@ namespace FlockSimulation
                 Agent agent = Instantiate(
                     _agentPrefab,
                     Random.insideUnitSphere * _agentsCount * _agentsSpawnDensity,
-                    Quaternion.identity,
+                    Quaternion.Euler(new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f))),
                     transform
                 );
                 agent.name = "Agent " + i.ToString();

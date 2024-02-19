@@ -169,8 +169,8 @@ MonoBehaviour:
   _flockBehavior: {fileID: 11400000, guid: 00a29dc4e05d3144999c89beb785808f, type: 2}
   _agentsCount: 100
   _agentsSpawnDensity: 0.08
-  _speedMultiplier: 3
-  _maxSpeed: 10
+  _speedMultiplier: 1
+  _maxSpeed: 5
   _neighborDetectionRadius: 2.5
   _neighborAvoidanceRadiusMultiplier: 0.5
   _agentLayer:
