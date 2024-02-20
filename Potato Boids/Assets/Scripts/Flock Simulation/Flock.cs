@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
 
 namespace FlockSimulation
@@ -61,6 +62,9 @@ namespace FlockSimulation
         void Update()
         {
             MoveAgents();
+
+            if (Input.GetKeyDown(KeyCode.R))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         #endregion
 

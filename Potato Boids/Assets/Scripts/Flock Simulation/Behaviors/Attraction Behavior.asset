@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Attraction Behavior
   m_EditorClassIdentifier: Assembly-CSharp:FlockSimulation:AttractionBehavior
-  _radius: 10
-  _attractionLooseness: 0.753
+  _radius: 3.5
+  _attractionLooseness: 0.5

@@ -6,13 +6,15 @@ namespace FlockSimulation
     [CreateAssetMenu (fileName = "Avoidance Behavior", menuName = "Flock/Behavior/Avoidance")]
     public class AvoidanceBehavior : FlockBehavior
     {
+        Vector3 refPosition;
         public override Vector3 CalculateMoveVector(Agent agent, List<Transform> neighbors, Flock flock)
         {
             bool isNeighborsExist = neighbors.Count != 0;
             if (!isNeighborsExist)
                 return Vector3.zero;
-
-            return GetNeighborsAvgAvoidancePosition();
+                
+            return Vector3.SmoothDamp(agent.transform.up, GetNeighborsAvgAvoidancePosition(), ref refPosition, flock.DirectionChangeSmoothTime);
+            // return GetNeighborsAvgAvoidancePosition();
 
             Vector3 GetNeighborsAvgAvoidancePosition()
             {
@@ -29,7 +31,7 @@ namespace FlockSimulation
                         neighborsToAvoidCount++;
                     }
                 }
-
+            
                 return neighborsToAvoidCount > 0 ? sum / neighborsToAvoidCount : sum;
             }
         }
